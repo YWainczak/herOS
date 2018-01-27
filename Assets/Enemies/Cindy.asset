@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b45341514a33844887efc249c47ce22, type: 3}
-  m_Name: Gabby
+  m_Name: Cindy
   m_EditorClassIdentifier: 
-  color: {r: 0.87058824, g: 0.5058824, b: 0.7254902, a: 1}
-  accentColor: {r: 0.5019608, g: 0.8666667, b: 0.54509807, a: 1}
+  color: {r: 0.94509804, g: 0.47843137, b: 0.5529412, a: 1}
+  accentColor: {r: 1, g: 0.72156864, b: 0.5058824, a: 1}
   sprite: {fileID: 21300000, guid: 296781779966ff743bea8832742c6982, type: 3}
   health: 69
   healthMax: 69

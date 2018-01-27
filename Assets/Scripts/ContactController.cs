@@ -28,6 +28,7 @@ public class ContactController : MonoBehaviour
 		if (manager.fighting == null)
 		{
 			manager.fighting = meEnemyDad;
+			manager.fightingStatus = "calling";
 		}
 	}
 }

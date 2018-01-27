@@ -5,15 +5,33 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float health;
+    //Player
+	public float health;
     public float healthMax;
 
+	public float attack;
+	public float attackCoolDown;
+	public float attackCoolDownTimer;
+
+	public float defense;
+	public float defenseCoolDown;
+	public float defenseTimer;
+
+	public float exp;
+	public float expMax;
+
+	public float money;
+
+	//Other
     public List<AppController> apps;
 
 	public List<Enemy> enemies;
 
 	public Enemy fighting;
-	public string fightingStatus;
+	public string fightingStatus = "nada";
+
+	public float callTimeMin;
+	public float callTimeMax;
 
     public Image battery; 
 
