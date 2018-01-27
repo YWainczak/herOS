@@ -12,7 +12,15 @@ public class GameManager : MonoBehaviour
 
 	public List<Enemy> enemies;
 
+	public Enemy fighting;
+	public string fightingStatus;
+
     public Image battery; 
+
+	public bool homeActive;
+	public RectTransform home;
+	public float homeSpeed = 8;
+
 
     void Start()
     {
@@ -22,14 +30,28 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         battery.fillAmount = health / healthMax;
+
+		if (home != null)
+		{
+			if (homeActive)
+			{
+				home.anchoredPosition = new Vector2(0, Mathf.Lerp(home.anchoredPosition.y, 0, homeSpeed * Time.deltaTime));
+			}
+			else
+			{
+				home.anchoredPosition = new Vector2(0, Mathf.Lerp(home.anchoredPosition.y, -Screen.height/4, homeSpeed * Time.deltaTime));
+			}
+		}
     }
 
     public void Home()
     {
-        foreach(AppController controller in apps)
-        {
-            controller.CloseApp();
-        }
+		if (homeActive)
+		{
+			foreach (AppController controller in apps) {
+				controller.CloseApp ();
+			}
+		}
     }
 
     public void LaunchApp(string appName)

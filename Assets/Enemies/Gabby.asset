@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b45341514a33844887efc249c47ce22, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 0}
-  sprite: {fileID: 0}
+  color: {r: 0.41831595, g: 0.5661765, b: 0.13738105, a: 1}
+  accentColor: {r: 0.875, g: 0.4632353, b: 0.4632353, a: 1}
+  sprite: {fileID: 21300000, guid: 4e2f382b5decd6145972f40ea5e719d7, type: 3}
   health: 69
   healthMax: 69
   attack: 1231

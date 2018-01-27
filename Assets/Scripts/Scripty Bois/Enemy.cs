@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : ScriptableObject
 {
     public Color color;
+	public Color accentColor;
     public Sprite sprite;
     
     public float health;

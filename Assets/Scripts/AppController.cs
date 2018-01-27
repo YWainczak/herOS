@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class AppController : MonoBehaviour
 {
-    public bool appOpen;
+	public GameManager manager;
+	public bool appOpen;
+	public bool systemApp;
     public Color appColor;
     public Image appOverlayHeader;
     public Text appOverlayHeaderText;
@@ -15,11 +17,15 @@ public class AppController : MonoBehaviour
 
 	// Use this for initialization
 	void Start ()
-    {
-        appRect = gameObject.GetComponent<RectTransform>();
-        appOverlayHeader.color = appColor;
-        appOverlayHeaderText.text = gameObject.name;
+	{
+		appRect = gameObject.GetComponent<RectTransform> ();
 
+		if (systemApp)
+		{
+			appOverlayHeader.color = appColor;
+			appOverlayHeaderText.text = gameObject.name;
+			appRect.anchoredPosition = new Vector2 (0, -Screen.height);
+		}
     }
 
     // Update is called once per frame
@@ -30,10 +36,20 @@ public class AppController : MonoBehaviour
             if (appOpen)
             {
                 appRect.anchoredPosition = new Vector2(0, Mathf.Lerp(appRect.anchoredPosition.y, 0, appSpeed * Time.deltaTime));
+
+				if (name == "Call" && manager.fighting == null)
+				{
+					CloseApp ();
+				}
             }
             else
             {
                 appRect.anchoredPosition = new Vector2(0, Mathf.Lerp(appRect.anchoredPosition.y, -Screen.height, appSpeed * Time.deltaTime));
+
+				if (name == "Call" && manager.fighting != null)
+				{
+					OpenApp ();
+				}
             }
         }
 	}
@@ -41,10 +57,21 @@ public class AppController : MonoBehaviour
     public void CloseApp()
     {
         appOpen = false;
+
+		if (name == "Call")
+		{
+			manager.homeActive = true;
+		}
     }
 
     public void OpenApp()
     {
         appOpen = true;
+
+		if (name == "Call")
+		{
+			manager.homeActive = false;
+		}
+
     }
 }
