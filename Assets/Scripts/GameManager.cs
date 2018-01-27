@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public List<AppController> apps;
 
+	public List<Enemy> enemies;
+
     public Image battery; 
 
     void Start()

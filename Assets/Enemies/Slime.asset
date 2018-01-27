@@ -9,15 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b45341514a33844887efc249c47ce22, type: 3}
-  m_Name: newEnemy
+  m_Name: Slime
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 0, b: 0, a: 0}
   sprite: {fileID: 0}
-  health: 0
-  healthMax: 0
-  attack: 0
-  attackTime: 0
-  attackTimeMax: 0
-  defense: 0
-  defenseTime: 0
-  defenseTimeMax: 0
+  health: 69
+  healthMax: 69
+  attack: 1231
+  attackTime: 1246634
+  attackTimeMax: 124
+  defense: 636
+  defenseTime: 23536
+  defenseTimeMax: 346
