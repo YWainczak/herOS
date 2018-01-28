@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 	public float expMax;
 	public Image expBar;
 
-	public float money;
+	public float gold;
 
 	//Enemy
 	public float enemyHealth;
@@ -81,6 +81,12 @@ public class GameManager : MonoBehaviour
 			{
 				home.anchoredPosition = new Vector2(0, Mathf.Lerp(home.anchoredPosition.y, -Screen.height/4, homeSpeed * Time.deltaTime));
 			}
+		}
+
+		if (exp > expMax)
+		{
+			exp -= expMax;
+			level++;
 		}
     }
 

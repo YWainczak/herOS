@@ -32,6 +32,11 @@ public class CallController : MonoBehaviour
 	public RectTransform swordCooldown;
 	public RectTransform ShieldCooldown;
 
+	public Text victoryText;
+
+	private float calcEXP;
+	private float calcGold;
+
 	private float callTimer;
 
 	public GameManager manager;
@@ -74,9 +79,11 @@ public class CallController : MonoBehaviour
 			hitImage.color = new Color (hitImage.color.r, hitImage.color.g, hitImage.color.b, Mathf.Lerp(hitImage.color.a, 0f, uiSpeed/2 * Time.deltaTime));
 		}
 
-		if (manager.enemyAttacking) {
+		if (manager.enemyAttacking)
+		{
 			powerRect.localScale = new Vector3 (Mathf.Lerp (powerRect.localScale.x, 1, uiSpeed * Time.deltaTime), Mathf.Lerp (powerRect.localScale.y, 1, uiSpeed * Time.deltaTime), 1);
-		} else {
+		} else
+		{
 			powerRect.localScale = new Vector3 (Mathf.Lerp(powerRect.localScale.x, 0, uiSpeed * Time.deltaTime), Mathf.Lerp(powerRect.localScale.y, 0, uiSpeed * Time.deltaTime), 1);
 		}
 
@@ -93,6 +100,14 @@ public class CallController : MonoBehaviour
 		if (manager.enemyHealth <= 0 && manager.fightingStatus == "battle") {
 			manager.fightingStatus = "victory";
 			manager.enemyAttacking = false;
+
+			calcEXP = Mathf.Round(manager.fighting.health / 4 + manager.attack / 2);
+			calcGold = Mathf.Round(manager.fighting.health / 2 + manager.attack / 4 + Random.Range(0, 4));
+
+			manager.exp += calcEXP;
+			manager.gold += calcGold;
+
+			victoryText.text = "+" + calcEXP.ToString () + " EXP\n" + "+" + calcGold.ToString () + " Gold";
 		}
 
 		if(manager.fightingStatus != "victory")
