@@ -9,22 +9,34 @@ public class GameManager : MonoBehaviour
 	public float health;
     public float healthMax;
 
+	public int level;
+
 	public float attack;
 	public float attackCoolDown;
 	public float attackCoolDownTimer;
 
 	public float defense;
+
+	public float defenseEffect;
+	public float defenseEffectTimer;
+
 	public float defenseCoolDown;
-	public float defenseTimer;
+	public float defenseCoolDownTimer;
 
 	public float exp;
 	public float expMax;
+	public Image expBar;
 
 	public float money;
 
 	//Enemy
 	public float enemyHealth;
 	public float enemyHealthMax;
+
+	public bool enemyAttacking;
+
+	public float enemyAttackTimer;
+	public float enemyCooldownTimer;
 
 	//Other
     public List<AppController> apps;
@@ -39,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     public Image battery; 
 
+	public Text levelText;
+
 	public bool homeActive;
 	public RectTransform home;
 	public float homeSpeed = 8;
@@ -52,6 +66,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         battery.fillAmount = health / healthMax;
+
+		levelText.text = "LEVEL " + level.ToString ();
+
+		expBar.fillAmount = exp / expMax;
 
 		if (home != null)
 		{

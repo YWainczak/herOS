@@ -13,11 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0.87058824, g: 0.5058824, b: 0.7254902, a: 1}
   accentColor: {r: 0.5019608, g: 0.8666667, b: 0.54509807, a: 1}
+  powerColor: {r: 0.45490196, g: 0.78039217, b: 0.7176471, a: 1}
   sprite: {fileID: 21300000, guid: 296781779966ff743bea8832742c6982, type: 3}
   health: 9
-  attack: 1231
-  attackTime: 1246634
-  attackTimeMax: 124
-  defense: 636
-  defenseTime: 23536
-  defenseTimeMax: 346
+  attack: 4
+  attackTime: 2
+  attackCooldownMax: 2
+  attackCooldownMin: 1
