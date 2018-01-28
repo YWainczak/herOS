@@ -43,6 +43,16 @@ public class GameManager : MonoBehaviour
 
 	public List<Enemy> enemies;
 
+	public AudioSource source;
+
+	public AudioClip uiBack;
+	public AudioClip uiClick;
+
+	public AudioSource musicSource;
+
+	public AudioClip mainTheme;
+	public AudioClip battleTheme;
+
 	public Enemy fighting;
 	public string fightingStatus = "nada";
 
@@ -94,6 +104,8 @@ public class GameManager : MonoBehaviour
     {
 		if (homeActive)
 		{
+			AudioBack ();
+
 			foreach (AppController controller in apps) {
 				controller.CloseApp ();
 			}
@@ -102,7 +114,9 @@ public class GameManager : MonoBehaviour
 
     public void LaunchApp(string appName)
     {
-        foreach (AppController controller in apps)
+		AudioClick ();
+
+		foreach (AppController controller in apps)
         {
             if (controller.gameObject.name == appName)
             {
@@ -110,4 +124,28 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+	public void AudioClick()
+	{
+		source.clip = uiClick;
+		source.Play ();
+	}
+
+	public void AudioBack()
+	{
+		source.clip = uiBack;
+		source.Play ();
+	}
+
+	public void MusicMain()
+	{
+		musicSource.clip = mainTheme;
+		musicSource.Play ();
+	}
+
+	public void MusicBattle()
+	{
+		musicSource.clip = battleTheme;
+		musicSource.Play ();
+	}
 }

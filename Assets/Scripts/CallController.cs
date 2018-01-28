@@ -29,6 +29,9 @@ public class CallController : MonoBehaviour
 
 	public Image healthBar;
 
+	public Color hitColor;
+	public Color blockColor;
+
 	public RectTransform swordCooldown;
 	public RectTransform ShieldCooldown;
 
@@ -64,12 +67,14 @@ public class CallController : MonoBehaviour
 				manager.enemyAttacking = true;
 				manager.enemyAttackTimer = manager.fighting.attackTime + Time.time;
 			} else if (manager.enemyAttacking && manager.enemyAttackTimer < Time.time) {
-				hitImage.color = new Color (hitImage.color.r, hitImage.color.g, hitImage.color.b, 1f);
 				if (manager.defenseEffectTimer > Time.time) {
 					manager.health -= manager.fighting.attack * manager.defense;
+					hitImage.color = blockColor;
 				} else {
 					manager.health -= manager.fighting.attack;
+					hitImage.color = hitColor;
 				}
+
 				EnemyCooldown ();
 			}
 		}
@@ -161,12 +166,14 @@ public class CallController : MonoBehaviour
 			manager.enemyHealth = manager.enemyHealthMax;
 		} else if (manager.fightingStatus == "ringing") {
 			if (Time.time > callTimer) {
+				manager.MusicBattle ();
 				manager.fightingStatus = "battle";
 				status.text = "Battle!";
 				EnemyCooldown ();
 			}
 		} else if (manager.fightingStatus == "victory") {
 			status.text = "Victory!";
+			manager.musicSource.Stop ();
 		}
 	}
 
@@ -177,6 +184,8 @@ public class CallController : MonoBehaviour
 			manager.enemyHealth -= manager.attack;
 			slashAnim.SetTrigger ("attack");
 			manager.attackCoolDownTimer = Time.time + manager.attackCoolDown;
+			manager.AudioClick ();
+
 		}
 	}
 
@@ -186,6 +195,8 @@ public class CallController : MonoBehaviour
 		{
 			manager.defenseCoolDownTimer = Time.time + manager.defenseCoolDown;
 			manager.defenseEffectTimer = Time.time + manager.defenseEffect;
+
+			manager.AudioClick ();
 		}
 	}
 
@@ -194,6 +205,9 @@ public class CallController : MonoBehaviour
 		manager.fighting = null;
 		manager.fightingStatus = "nada";
 		manager.enemyAttacking = false;
+
+		manager.AudioBack ();
+		manager.MusicMain ();
 	}
 
 	void EnemyCooldown()

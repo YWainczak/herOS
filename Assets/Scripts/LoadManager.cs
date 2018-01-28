@@ -9,8 +9,13 @@ public class LoadManager : MonoBehaviour
 	public string mainScene;
 	public float uiSpeed = 2;
 
+	public AudioListener listen;
+	public AudioSource source;
+
 	public Image logoImage;
 	public RectTransform logoRect;
+
+	private bool chime = false;
 
 	public float waitTime = 2;
 	public float waitTimeCurrent;
@@ -39,12 +44,18 @@ public class LoadManager : MonoBehaviour
 		if (Time.time > waitTime)
 		{
 			if (!ready) {
+				if (!chime)
+				{
+					chime = true;
+					source.Play ();
+				}
 				logoRect.anchoredPosition = new Vector2 (0, Mathf.Lerp (logoRect.anchoredPosition.y, 0, uiSpeed * Time.deltaTime));
 				logoImage.color = new Color (logoImage.color.r, logoImage.color.b, logoImage.color.g, Mathf.Lerp (logoImage.color.a, 1f, uiSpeed * Time.deltaTime));
 
-				if (logoImage.color.a >= 0.99f)
+				if (logoImage.color.a >= 0.99f && !source.isPlaying)
 				{
 					ready = true;
+					Destroy (listen);
 					myASync = SceneManager.LoadSceneAsync (mainScene, LoadSceneMode.Additive);
 					waitTimeCurrent = Time.time + waitTime;
 				}

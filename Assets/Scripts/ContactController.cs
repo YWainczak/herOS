@@ -29,6 +29,8 @@ public class ContactController : MonoBehaviour
 		{
 			manager.fighting = meEnemyDad;
 			manager.fightingStatus = "calling";
+			manager.AudioClick ();
+			manager.musicSource.Stop ();
 		}
 	}
 }
