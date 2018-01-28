@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
     //Player
 	public float health;
     public float healthMax;
+	public float healthAdd;
 
 	public int level;
 
 	public float attack;
 	public float attackCoolDown;
 	public float attackCoolDownTimer;
+	public float attackMulti;
 
 	public float defense;
 
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
 
 	public float exp;
 	public float expMax;
+	public float expMulti;
 	public Image expBar;
 
 	public float gold;
@@ -76,7 +79,19 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        battery.fillAmount = health / healthMax;
+		if (exp >= expMax)
+		{
+			exp -= expMax;
+			level++;
+			expMax *= expMulti;
+
+			healthMax += healthAdd;
+			health += healthAdd;
+
+			attack *= attackMulti;
+		}
+
+		battery.fillAmount = health / healthMax;
 
 		levelText.text = "LEVEL " + level.ToString ();
 
@@ -92,12 +107,6 @@ public class GameManager : MonoBehaviour
 			{
 				home.anchoredPosition = new Vector2(0, Mathf.Lerp(home.anchoredPosition.y, -Screen.height/4, homeSpeed * Time.deltaTime));
 			}
-		}
-
-		if (exp > expMax)
-		{
-			exp -= expMax;
-			level++;
 		}
     }
 
