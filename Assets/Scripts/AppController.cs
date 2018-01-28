@@ -20,11 +20,12 @@ public class AppController : MonoBehaviour
 	{
 		appRect = gameObject.GetComponent<RectTransform> ();
 
+		appRect.anchoredPosition = new Vector2 (0, -Screen.height);
+
 		if (systemApp)
 		{
 			appOverlayHeader.color = appColor;
 			appOverlayHeaderText.text = gameObject.name;
-			appRect.anchoredPosition = new Vector2 (0, -Screen.height);
 		}
     }
 

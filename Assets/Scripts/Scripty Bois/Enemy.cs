@@ -8,7 +8,6 @@ public class Enemy : ScriptableObject
     public Sprite sprite;
     
     public float health;
-    public float healthMax;
 
     public float attack; // Attack stat
     public float attackTime; // Time from telegraph until actual attack

@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
 
 	public float money;
 
+	//Enemy
+	public float enemyHealth;
+	public float enemyHealthMax;
+
 	//Other
     public List<AppController> apps;
 
