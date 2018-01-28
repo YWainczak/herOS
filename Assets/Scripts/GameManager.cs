@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -65,6 +66,16 @@ public class GameManager : MonoBehaviour
 
     public Image battery; 
 
+	public Image batteryCharging;
+	public float chargeSpeed;
+
+	public Image deathFade;
+	public RectTransform deathBox;
+	public Image deathFade2;
+
+	public float deathWait;
+	public float deathWaitTimer;
+
 	public Text levelText;
 
 	public bool homeActive;
@@ -75,6 +86,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         health = healthMax;
+		deathBox.anchoredPosition = new Vector2(0, -Screen.height);
     }
 
     void Update()
@@ -97,6 +109,16 @@ public class GameManager : MonoBehaviour
 
 		expBar.fillAmount = exp / expMax;
 
+		if (fighting == null) {
+			batteryCharging.enabled = true;
+			health += chargeSpeed * Time.deltaTime;
+			if (health > healthMax) {
+				health = healthMax;
+			}
+		} else {
+			batteryCharging.enabled = false;
+		}
+
 		if (home != null)
 		{
 			if (homeActive)
@@ -108,31 +130,57 @@ public class GameManager : MonoBehaviour
 				home.anchoredPosition = new Vector2(0, Mathf.Lerp(home.anchoredPosition.y, -Screen.height/4, homeSpeed * Time.deltaTime));
 			}
 		}
+
+		if (health <= 0)
+		{
+			deathBox.anchoredPosition = new Vector2(0, Mathf.Lerp(deathBox.anchoredPosition.y, 0, homeSpeed * Time.deltaTime));
+			deathFade.color = new Color (deathFade.color.r, deathFade.color.g, deathFade.color.b, Mathf.Lerp (deathFade.color.a, 1, homeSpeed/4 * Time.deltaTime));
+
+			if (deathFade.color.a > 0.99f) {
+				if (deathWaitTimer == null) {
+					deathWaitTimer = deathWait + Time.time;
+				} else if (Time.time > deathWaitTimer) {
+					deathFade2.color = new Color (deathFade2.color.r, deathFade2.color.g, deathFade2.color.b, Mathf.Lerp (deathFade2.color.a, 1, homeSpeed/4 * Time.deltaTime));
+
+					if (deathFade2.color.a > 0.99f) {
+						SceneManager.LoadScene (0);
+					}
+				}
+
+			
+			}
+		}
+		else
+		{
+			deathBox.anchoredPosition = new Vector2(0, Mathf.Lerp(deathBox.anchoredPosition.y, -Screen.height, homeSpeed * Time.deltaTime));
+			deathFade.color = new Color (deathFade.color.r, deathFade.color.g, deathFade.color.b, Mathf.Lerp (deathFade.color.a, 0, homeSpeed/4 * Time.deltaTime));
+		}
     }
 
     public void Home()
     {
-		if (homeActive)
-		{
-			AudioBack ();
+		if (health > 0) {
+			if (homeActive) {
+				AudioBack ();
 
-			foreach (AppController controller in apps) {
-				controller.CloseApp ();
+				foreach (AppController controller in apps) {
+					controller.CloseApp ();
+				}
 			}
 		}
     }
 
     public void LaunchApp(string appName)
     {
-		AudioClick ();
+		if (health > 0) {
+			AudioClick ();
 
-		foreach (AppController controller in apps)
-        {
-            if (controller.gameObject.name == appName)
-            {
-                controller.OpenApp();
-            }
-        }
+			foreach (AppController controller in apps) {
+				if (controller.gameObject.name == appName) {
+					controller.OpenApp ();
+				}
+			}
+		}
     }
 
 	public void AudioClick()
@@ -164,5 +212,4 @@ public class GameManager : MonoBehaviour
 		musicSource.clip = callingTheme;
 		musicSource.Play ();
 	}
-
 }

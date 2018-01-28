@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b45341514a33844887efc249c47ce22, type: 3}
   m_Name: Theodore
   m_EditorClassIdentifier: 
-  color: {r: 0.21568628, g: 0.5921569, b: 0.5647059, a: 1}
-  accentColor: {r: 0.36862746, g: 0.2901961, b: 0.6627451, a: 1}
-  powerColor: {r: 0.9647059, g: 0.6156863, b: 0.34901962, a: 1}
+  color: {r: 0.67058825, g: 0.5254902, b: 0.41568628, a: 1}
+  accentColor: {r: 0.40392157, g: 0.6627451, b: 0.6431373, a: 1}
+  powerColor: {r: 0.6431373, g: 0.39607844, b: 0.42352942, a: 1}
   sprite: {fileID: 21300000, guid: 527f1ad187c0d8745ad3ba4bdff20b47, type: 3}
   health: 500
   attack: 15

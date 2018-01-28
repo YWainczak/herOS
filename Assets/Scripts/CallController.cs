@@ -179,35 +179,39 @@ public class CallController : MonoBehaviour
 
 	public void Sword()
 	{
-		if (Time.time > manager.attackCoolDownTimer)
-		{
-			manager.enemyHealth -= manager.attack;
-			slashAnim.SetTrigger ("attack");
-			manager.attackCoolDownTimer = Time.time + manager.attackCoolDown;
-			manager.AudioClick ();
+		if (manager.health > 0) {
+			if (Time.time > manager.attackCoolDownTimer) {
+				manager.enemyHealth -= manager.attack;
+				slashAnim.SetTrigger ("attack");
+				manager.attackCoolDownTimer = Time.time + manager.attackCoolDown;
+				manager.AudioClick ();
 
+			}
 		}
 	}
 
 	public void Shield()
 	{
-		if (Time.time > manager.defenseCoolDownTimer)
-		{
-			manager.defenseCoolDownTimer = Time.time + manager.defenseCoolDown;
-			manager.defenseEffectTimer = Time.time + manager.defenseEffect;
+		if (manager.health > 0) {
+			if (Time.time > manager.defenseCoolDownTimer) {
+				manager.defenseCoolDownTimer = Time.time + manager.defenseCoolDown;
+				manager.defenseEffectTimer = Time.time + manager.defenseEffect;
 
-			manager.AudioClick ();
+				manager.AudioClick ();
+			}
 		}
 	}
 
 	public void HangUp()
 	{
-		manager.fighting = null;
-		manager.fightingStatus = "nada";
-		manager.enemyAttacking = false;
+		if (manager.health > 0) {
+			manager.fighting = null;
+			manager.fightingStatus = "nada";
+			manager.enemyAttacking = false;
 
-		manager.AudioBack ();
-		manager.MusicMain ();
+			manager.AudioBack ();
+			manager.MusicMain ();
+		}
 	}
 
 	void EnemyCooldown()

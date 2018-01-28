@@ -25,12 +25,13 @@ public class ContactController : MonoBehaviour
 
 	public void Call()
 	{
-		if (manager.fighting == null)
-		{
-			manager.fighting = meEnemyDad;
-			manager.fightingStatus = "calling";
-			manager.AudioClick ();
-			manager.MusicCalling ();
+		if (manager.health > 0) {
+			if (manager.fighting == null) {
+				manager.fighting = meEnemyDad;
+				manager.fightingStatus = "calling";
+				manager.AudioClick ();
+				manager.MusicCalling ();
+			}
 		}
 	}
 }

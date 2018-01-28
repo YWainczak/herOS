@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b45341514a33844887efc249c47ce22, type: 3}
   m_Name: Bear
   m_EditorClassIdentifier: 
-  color: {r: 0.40784314, g: 0.02745098, b: 0.63529414, a: 1}
-  accentColor: {r: 0.27450982, g: 0.27450982, b: 0.25490198, a: 1}
-  powerColor: {r: 1, g: 0.9254902, b: 0, a: 1}
+  color: {r: 0.4, g: 0.36078432, b: 0.3372549, a: 1}
+  accentColor: {r: 0.35686275, g: 0.49019608, b: 0.6156863, a: 1}
+  powerColor: {r: 1, g: 0.9137255, b: 0.7882353, a: 1}
   sprite: {fileID: 21300000, guid: 12a39d701a9ebfa40b8279703278c0b3, type: 3}
   health: 400
   attack: 15
