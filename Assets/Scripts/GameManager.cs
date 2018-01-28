@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
 	public AudioClip mainTheme;
 	public AudioClip battleTheme;
+	public AudioClip callingTheme;
 
 	public Enemy fighting;
 	public string fightingStatus = "nada";
@@ -148,4 +149,11 @@ public class GameManager : MonoBehaviour
 		musicSource.clip = battleTheme;
 		musicSource.Play ();
 	}
+
+	public void MusicCalling()
+	{
+		musicSource.clip = callingTheme;
+		musicSource.Play ();
+	}
+
 }

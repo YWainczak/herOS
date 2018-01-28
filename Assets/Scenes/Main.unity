@@ -3795,6 +3795,7 @@ MonoBehaviour:
   musicSource: {fileID: 1152897619}
   mainTheme: {fileID: 8300000, guid: 31fc5d29fb4b9ed4fbd5342190e90e6c, type: 3}
   battleTheme: {fileID: 8300000, guid: 6e72b15df3d615f49a839f676b56565b, type: 3}
+  callingTheme: {fileID: 8300000, guid: b003ed711c2517f42a88575882412936, type: 3}
   fighting: {fileID: 0}
   fightingStatus: 
   callTimeMin: 0.5
