@@ -15,8 +15,8 @@ MonoBehaviour:
   accentColor: {r: 0.27450982, g: 0.27450982, b: 0.25490198, a: 1}
   powerColor: {r: 1, g: 0.9254902, b: 0, a: 1}
   sprite: {fileID: 21300000, guid: 12a39d701a9ebfa40b8279703278c0b3, type: 3}
-  health: 20
-  attack: 4
-  attackTime: 3
-  attackCooldownMax: 4
-  attackCooldownMin: 2
+  health: 400
+  attack: 15
+  attackTime: 2
+  attackCooldownMax: 15
+  attackCooldownMin: 5
