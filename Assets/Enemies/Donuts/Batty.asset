@@ -18,5 +18,5 @@ MonoBehaviour:
   health: 230
   attack: 10
   attackTime: 2
-  attackCooldownMax: 4
-  attackCooldownMin: 2
+  attackCooldownMax: 7
+  attackCooldownMin: 3

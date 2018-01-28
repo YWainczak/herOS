@@ -17,6 +17,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 80dd86d7ee2eb5e4291423613988e100, type: 3}
   health: 150
   attack: 5
-  attackTime: 3
-  attackCooldownMax: 2
+  attackTime: 2
+  attackCooldownMax: 6
   attackCooldownMin: 1
