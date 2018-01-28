@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b45341514a33844887efc249c47ce22, type: 3}
+  m_Name: Deborah
+  m_EditorClassIdentifier: 
+  color: {r: 0.9411765, g: 0.85452086, b: 0.71972317, a: 1}
+  accentColor: {r: 0.31617647, g: 0.22452936, b: 0.06741999, a: 1}
+  powerColor: {r: 0.4627451, g: 0.59607846, b: 0.80784315, a: 1}
+  sprite: {fileID: 21300000, guid: 960c6547aabeb7e44adf2e720b9a7976, type: 3}
+  health: 9
+  attack: 4
+  attackTime: 2
+  attackCooldownMax: 2
+  attackCooldownMin: 1

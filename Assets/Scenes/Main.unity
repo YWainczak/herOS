@@ -3784,10 +3784,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e604e3c75db2e04c85ee8abb3e70aa9, type: 2}
   - {fileID: 11400000, guid: cc7baf03c90a04f4e961355b05a39bc1, type: 2}
   - {fileID: 11400000, guid: cea9912db8b6ed7428687369cbdc0b81, type: 2}
-  - {fileID: 11400000, guid: c47b08452de5e5c42805cbc3b607add3, type: 2}
+  - {fileID: 11400000, guid: b39f19a5ffee38f40898bb50ee098ee9, type: 2}
   - {fileID: 11400000, guid: d00a97bccc453f847a96e44d92bfb18f, type: 2}
   - {fileID: 11400000, guid: ae600525e687a5a4bac3584fec197dc2, type: 2}
   - {fileID: 11400000, guid: 416cc2db2963436469bb68e4f9714b44, type: 2}
+  - {fileID: 11400000, guid: c47b08452de5e5c42805cbc3b607add3, type: 2}
   - {fileID: 11400000, guid: 46cd52324230eb44c8d523c8e2288130, type: 2}
   source: {fileID: 1152897618}
   uiBack: {fileID: 8300000, guid: 4ca95dba240ca3f44af0c7902ea919aa, type: 3}
@@ -4483,7 +4484,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 874014062}
   m_HandleRect: {fileID: 874014061}
   m_Direction: 2
-  m_Value: 0.99999964
+  m_Value: 0.99999976
   m_Size: 0.6666666
   m_NumberOfSteps: 0
   m_OnValueChanged:
